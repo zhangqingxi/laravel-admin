@@ -1,5 +1,5 @@
-# blog 
-My Personal Website Blog
+# Laravel-Admin 
+This Is A Web System Manage
 
 #迁移前提
     composer install --optimize-autoloader --no-dev
