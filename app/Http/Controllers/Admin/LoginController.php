@@ -18,7 +18,7 @@ class LoginController extends BaseController
     public function index()
     {
 
-        
+
 //        $adminUser = AdminUser::find(1);
 //        $adminMenuPermission = AdminMenu::find(5);
 //        $a = $adminUser->hasAdminMenuPermission($adminMenuPermission);

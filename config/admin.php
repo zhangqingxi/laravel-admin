@@ -2,6 +2,8 @@
 
 return [
 
+    'admin_url' =>  env('APP_ADMIN_URL', ''),
+
     /**
      * 事件相关
      */
