@@ -1,0 +1,87 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 19,
+  "data": [
+    {
+      "id": 1,
+      "name": "用户管理",
+      "sort": 2,
+      "route": "users",
+      "status": 1,
+      "parent_id": 0
+    },
+    {
+      "id": 2,
+      "name": "查询用户",
+      "sort": 3,
+      "route": "users/select",
+      "status": 1,
+      "parent_id": 1
+    },
+    {
+      "id": 3,
+      "name": "添加用户",
+      "sort": 4,
+      "route": "users/add",
+      "status": 1,
+      "parent_id": 1
+    },
+    {
+      "id": 4,
+      "name": "修改用户",
+      "sort": 5,
+      "route": "users/edit",
+      "status": 1,
+      "parent_id": 1
+    },
+    {
+      "id": 5,
+      "name": "删除用户",
+      "sort": 6,
+      "route": "users/delete",
+      "status": 1,
+      "parent_id": 1
+    },
+    {
+      "id": 6,
+      "name": "文章管理",
+      "sort": 2,
+      "route": "posts",
+      "status": 1,
+      "parent_id": 0
+    },
+    {
+      "id": 7,
+      "name": "查询用户",
+      "sort": 3,
+      "route": "posts/select",
+      "status": 1,
+      "parent_id": 6
+    },
+    {
+      "id": 8,
+      "name": "添加用户",
+      "sort": 4,
+      "route": "posts/add",
+      "status": 1,
+      "parent_id": 6
+    },
+    {
+      "id": 9,
+      "name": "修改用户",
+      "sort": 5,
+      "route": "posts/edit",
+      "status": 1,
+      "parent_id": 6
+    },
+    {
+      "id": 10,
+      "name": "删除用户",
+      "sort": 6,
+      "route": "posts/delete",
+      "status": 1,
+      "parent_id": 6
+    }
+  ]
+}

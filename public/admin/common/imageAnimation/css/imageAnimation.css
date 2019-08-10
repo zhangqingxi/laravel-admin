@@ -1,0 +1,111 @@
+.image-box {
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    perspective: 800px;
+    position: relative;
+}
+
+.image-box:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background:
+            linear-gradient(36deg, #272b66 42.34%, transparent 42.34%) 0 0,
+            linear-gradient(72deg, #2d559f 75.48%, transparent 75.48%) 0 0,
+            linear-gradient(-36deg, #9ac147 42.34%, transparent 42.34%) 100% 0,
+            linear-gradient(-72deg, #639b47 75.48%, transparent 75.48%) 100% 0,
+            linear-gradient(36deg, transparent 57.66%, #e1e23b 57.66%) 100% 100%,
+            linear-gradient(72deg, transparent 24.52%, #f7941e 24.52%) 100% 100%,
+            linear-gradient(-36deg, transparent 57.66%, #662a6c 57.66%) 0 100%,
+            linear-gradient(-72deg, transparent 24.52%, #9a1d34 24.52%) 0 100%,
+            #43a1cd linear-gradient(#ba3e2e, #ba3e2e) 50% 100%;
+    background-size: 50% 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+    transform: translateX(-50%) translateY(-50%) scale(0) rotate(360deg);
+    transition: all 0.3s ease 0s;
+}
+
+.image-box:before {
+    background-repeat: no-repeat;
+}
+
+.image-box:hover:before {
+    opacity: 0.5;
+    transform: translateX(-50%) translateY(-50%) scale(1.5) rotate(0);
+}
+
+.image-box:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgba(255, 255, 255, 0.9), transparent, transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.image-box:hover:after {
+    opacity: 1;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+}
+
+.image-box .box-content {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.image-box .inner-content {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    z-index: 2;
+    transform: translate(-50%, -50%) scale(2);
+    transition: all 0.3s ease 0.2s;
+}
+
+.image-box:hover .inner-content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.image-box .btn {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 900;
+    color: #3e0e0c;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease 0.2s;
+    background-color: #fff;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 20%;
+    padding: 3px;
+    margin: 0 5px 0 0;
+}
+
+.image-box .btn:hover {
+    background: #3e0e0c;
+    color: #fff;
+}
