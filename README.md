@@ -86,7 +86,7 @@ blade引入资源
     
 开启storage资源软连接  
     
-    php artisan stotage:link 
+    php artisan storage:link 
     
 #安装验证码扩展
 [captcha](https://github.com/mewebstudio/captcha)
