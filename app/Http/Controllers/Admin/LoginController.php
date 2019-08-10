@@ -12,12 +12,15 @@ use Illuminate\Validation\ValidationException;
 class LoginController extends BaseController
 {
 
+    public function test()
+    {
+        dd(1234564);
+    }
     /**
      * 登录页面
      */
     public function index()
     {
-
 
 //        $adminUser = AdminUser::find(1);
 //        $adminMenuPermission = AdminMenu::find(5);

@@ -3,14 +3,15 @@
 Route::group(['namespace' => 'Admin'], function () {
 
     //登录页面
-    Route::get('login', 'LoginController@login')->name('login');
+    Route::get('login', '\App\Http\Controllers\Admin\LoginController@index')->name('login');
 
     //登录行为
-    Route::post('login', 'LoginController@login');
+    Route::post('login', '\App\Http\Controllers\Admin\LoginController@login');
 
     //登出行为
-    Route::get('logout', 'LoginController@logout');
+    Route::get('logout', '\App\Http\Controllers\Admin\LoginController@logout');
 
+    //权限认证
     Route::group(['middleware' => 'auth:admin'], function (){
 
         //首页
