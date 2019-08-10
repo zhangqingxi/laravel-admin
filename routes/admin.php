@@ -3,7 +3,7 @@
 Route::group(['namespace' => 'Admin'], function () {
 
     //登录页面
-    Route::get('login', 'LoginController@index')->name('login');
+    Route::get('login', 'LoginController@login')->name('login');
 
     //登录行为
     Route::post('login', 'LoginController@login');
