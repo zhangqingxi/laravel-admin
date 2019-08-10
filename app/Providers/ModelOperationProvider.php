@@ -35,7 +35,7 @@ class ModelOperationProvider extends ServiceProvider
     public function registerEvents()
     {
 
-        $allListeners = config('blog.event.listeners');
+        $allListeners = config('admin.event.listeners');
 
         foreach ($allListeners as $event => $listeners) {
 
@@ -47,7 +47,7 @@ class ModelOperationProvider extends ServiceProvider
 
         }
 
-        $observers = config('blog.event.observers');
+        $observers = config('admin.event.observers');
 
         foreach ($observers as $observer) {
 
