@@ -3,13 +3,13 @@
 Route::group(['namespace' => 'Admin'], function () {
 
     //登录页面
-    Route::get('login', '\App\Http\Controllers\Admin\LoginController@index')->name('login');
+    Route::get('login', 'LoginController@index')->name('login');
 
     //登录行为
-    Route::post('login', '\App\Http\Controllers\Admin\LoginController@login');
+    Route::post('login', 'LoginController@login');
 
     //登出行为
-    Route::get('logout', '\App\Http\Controllers\Admin\LoginController@logout');
+    Route::get('logout', 'LoginController@logout');
 
     //权限认证
     Route::group(['middleware' => 'auth:admin'], function (){
