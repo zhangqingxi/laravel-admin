@@ -16,6 +16,15 @@ My Personal Website Blog
 也可以使用单独命令进行各项优化
 
 
+##可能出现的问题
+php artisan migrate 错误
+
+    Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes
+    原因是最大长度是1000字节 给定的是1071 
+    laravel 5.4以上用的是utf8mb4编码【每字符4字节】 
+    解决方案 在AppServiceProvider.php中的boot方法加入下面一行
+    Schema::defaultStringLength(250); 1000/4
+     
 #下面是做blog用到的知识点
 
 #安装工具自动提示扩展

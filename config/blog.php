@@ -2,11 +2,6 @@
 
 return [
 
-    'admin_url' => env('APP_ADMIN_URL', 'blog-manager.zhangqingxi.cn'),
-
-    'admin_url_prefix' => env('APP_ADMIN_URL_PREFIX', 'blog-manager'),
-
-
     /**
      * 事件相关
      */

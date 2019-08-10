@@ -15,7 +15,7 @@ class CreateAdminSystemLogsTable extends Migration
     {
         Schema::create('admin_system_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('admin_user_id')->default(0)->comment('用户ID');
+            $table->unsignedInteger('admin_user_id')->default(0)->comment('管理员ID');
             $table->string('route', 50)->default('')->comment('执行路由');
             $table->string('method', 10)->default('')->comment('执行方法');
             $table->string('ip', 30)->default('')->comment('客户端ip');

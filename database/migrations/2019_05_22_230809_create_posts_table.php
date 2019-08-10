@@ -15,8 +15,8 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('admin_user_id')->default(0)->comment('用户ID');
-            $table->string('ip', 30)->default('')->comment('用户ID');
+            $table->unsignedInteger('admin_user_id')->default(0)->comment('管理员ID');
+            $table->string('ip', 30)->default('')->comment('管理员IP');
             $table->string('title', 100)->default('')->comment('标题');
             $table->string('description')->default('')->comment('简介');
             $table->text('content')->comment('内容');
