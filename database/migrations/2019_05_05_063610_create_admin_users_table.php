@@ -19,7 +19,6 @@ class CreateAdminUsersTable extends Migration
             $table->string('password','100')->default('')->comment('用户密码');
             $table->string('nickname','100')->default('')->comment('用户昵称');
             $table->string('last_login_ip', 15)->default('')->comment('最后登录IP');
-            $table->unsignedInteger('last_login_time')->default(0)->comment('最后登录时间');
             $table->unsignedInteger('login_times')->default(0)->comment('登录次数');
             $table->unsignedTinyInteger('status')->default(1)->comment('用户状态 1正常 0禁用');
             $table->softDeletes()->comment('软删除');

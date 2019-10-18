@@ -43,8 +43,6 @@ class UpdateAdminUserLoginInfo implements ShouldQueue
 
         $adminUser->last_login_ip = $this->ip;
 
-        $adminUser->last_login_time = time();
-
         $adminUser->login_times ++;
 
         $adminUser->save();

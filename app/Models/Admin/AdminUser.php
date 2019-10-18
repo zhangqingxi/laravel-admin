@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\DB;
  * @property string $username 用户名
  * @property string $password 用户密码
  * @property string $last_login_ip 最后登录IP
- * @property int $last_login_time 最后登录时间
  * @property int $status 用户状态 1正常 0禁用
  * @property string|null $deleted_at 软删除
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -57,7 +56,7 @@ class AdminUser extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'last_login_ip', 'last_login_time', 'status', 'username', 'password', 'nickname', 'login_times',
+        'last_login_ip', 'status', 'username', 'password', 'nickname', 'login_times',
     ];
 
     public static function boot()
@@ -100,17 +99,6 @@ class AdminUser extends Authenticatable
     {
 
         return $this->belongsToMany(AdminRole::class, AdminUserRole::class, 'admin_user_id', 'role_id');
-
-    }
-
-    /**
-     * 设置·last_login_time·字段的返回格式
-     * @return false|string
-     */
-    public  function  getLastLoginTimeAttribute()
-    {
-
-        return date('Y-m-d H:i:s', $this->attributes['last_login_time']);
 
     }
 

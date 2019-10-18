@@ -421,7 +421,7 @@
                             {field: 'username', title: '用户名',width:120},
                             {field: 'nickname', title: '用户昵称',width:120},
                             {field: 'last_login_ip', title: '登录ip',width:120},
-                            {field: 'last_login_time', title: '登录时间'},
+                            {field: 'updated_at', title: '登录时间'},
                             {field: 'created_at', title: '注册时间'},
                             {align:'center',title: '角色', toolbar: '#item-roles',width:120},
                             {align:'center',title: '状态', toolbar: '#item-status',width:80},

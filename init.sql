@@ -43,7 +43,7 @@ INSERT INTO `sys_admin_menus`(`id`, `parent_id`, `status`, `sort`, `route`, `nam
         INSERT INTO `sys_admin_menus`(`id`, `parent_id`, `status`, `sort`, `route`, `name`, `icon`, `remark`, `deleted_at`, `created_at`, `updated_at`) VALUES (43, 41, 0, 0, 'files/delete', '删除文件', '', '删除文件', NULL, '2019-05-11 00:46:20', '2019-05-11 00:46:20');
 
 #----admin_users----
-INSERT INTO `sys_admin_users`(`id`, `username`, `password`, `nickname`, `last_login_ip`, `last_login_time`, `login_times` , `status`, `deleted_at`, `created_at`, `updated_at`) VALUES (1, 'admin', '$2y$10$nvD4kseoE8.kNxsyyYT5EOGW2mYD3O2cfoVqnHvrBKb.zR3m1PYoG', '系统管理员', '', 0, 0, 1, NULL, '2019-05-11 01:36:20', '2019-05-24 11:40:15');
+INSERT INTO `sys_admin_users`(`id`, `username`, `password`, `nickname`, `last_login_ip`, `login_times` , `status`, `deleted_at`, `created_at`, `updated_at`) VALUES (1, 'admin', '$2y$10$nvD4kseoE8.kNxsyyYT5EOGW2mYD3O2cfoVqnHvrBKb.zR3m1PYoG', '系统管理员', '', 0, 1, NULL, '2019-05-11 01:36:20', '2019-05-24 11:40:15');
 
 
 #----admin_roles----
