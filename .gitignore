@@ -6,7 +6,7 @@
 /public/hooks
 /public/demo
 /public/vendor
-/storage/*.key
+/storage
 /vendor
 #开发工具提示
 .idea
