@@ -33,9 +33,6 @@ This Is A Web System Manage
 
 也可以使用单独命令进行各项优化
 
-## 监听队列
-    php artisan queue:work --daemon --tries 3
-
 ##可能出现的问题
 php artisan migrate 错误
 
