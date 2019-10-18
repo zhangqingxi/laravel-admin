@@ -6,14 +6,13 @@
 /public/hooks
 /public/demo
 /public/vendor
-/storage
+/storage/*.key
 /vendor
 #开发工具提示
 .idea
 _ide_helper.php
 _ide_helper_models.php
 .phpstorm.meta.php
-#开发工具提示
 config/ide_helper.php
 .env
 Homestead.json
