@@ -42,7 +42,7 @@ php artisan migrate 错误
     解决方案 在AppServiceProvider.php中的boot方法加入下面一行
     Schema::defaultStringLength(250); 1000/4
      
-#下面是做blog用到的知识点
+#用到的知识点
 
 #安装工具自动提示扩展
 [laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
@@ -169,7 +169,7 @@ blade引入资源
 
 #laravel事件 监听 观察者 服务
 创建一个系统操作事件
-    
+
     php artisan artisan make:event SystemOperation 
     
 监听这个事件
