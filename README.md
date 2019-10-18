@@ -1,9 +1,26 @@
 # Laravel-Admin 
 This Is A Web System Manage
 
-#迁移前提
+#程序版本
+    php7.3 mysql5.7 nginx1.16
+    php扩展：
+        --PHP OpenSSL
+        --PHP PDO
+        --PHP Mbstring
+        --PHP Tokenizer
+        --PHP XML
+        --PHP Fileinfo
+    php安全函数
+        --proc_open
+        --putenv
+        --pcntl_signal
+        
+#数据迁移
+    php artisan migrate
+       
+#安装必要扩展/类库
     composer install --optimize-autoloader --no-dev
-    
+      
 ## 清理应用文件 
     php artisan cache:clear
     
