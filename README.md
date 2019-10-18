@@ -1,7 +1,7 @@
 # Laravel-Admin 
 This Is A Web System Manage
 
-#程序版本
+##程序版本
     php7.3 mysql5.7 nginx1.16
     php扩展：
         --PHP OpenSSL
@@ -15,10 +15,10 @@ This Is A Web System Manage
         --putenv
         --pcntl_signal
         
-#数据迁移
+##数据迁移
     php artisan migrate
        
-#安装必要扩展/类库
+##安装必要扩展/类库
     composer install --optimize-autoloader --no-dev
       
 ## 清理应用文件 
