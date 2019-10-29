@@ -31,8 +31,13 @@ This Is A Web System Manage
    
 ## 4.必要数据
     php artisan key:generate
-    php artisan migrate      
-        
+    php artisan migrate   
+    导入init.sql
+    
+## 5.菜单权限
+    \app\Providers\AuthServiceProvider.php
+    把注册权限的注释打开
+            
 # 更新流程     
 
 ## 1.开启维护
