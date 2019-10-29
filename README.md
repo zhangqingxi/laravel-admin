@@ -96,7 +96,7 @@ This Is A Web System Manage
 ## 安装富文本编辑框扩展
 [laravel-u-editor](https://github.com/stevenyangecho/laravel-u-editor)
 
-    composer require --dev stevenyangecho/laravel-u-editor
+    composer require stevenyangecho/laravel-u-editor
 
 *在config/app.php add service provider*
 
@@ -131,7 +131,7 @@ This Is A Web System Manage
 ## 安装验证码扩展
 [captcha](https://github.com/mewebstudio/captcha)
 
-    composer require --dev mews/captcha
+    composer require mews/captcha
 
 *在config/app.php add service provider*
 

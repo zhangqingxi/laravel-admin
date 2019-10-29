@@ -175,9 +175,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        //代码自动提示工具
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
         //富文本编辑器
         Stevenyangecho\UEditor\UEditorServiceProvider::class,
 
@@ -186,9 +183,6 @@ return [
 
         //validate语言包
         Overtrue\LaravelLang\TranslationServiceProvider::class,
-
-        //调试工具
-        Barryvdh\Debugbar\ServiceProvider::class,
 
         //系统操作
         App\Providers\ModelOperationProvider::class,
