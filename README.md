@@ -84,6 +84,19 @@ This Is A Web System Manage
 *门面的自动PHPDOC生成 === 每次使用composer都要重新运行改命令*
 
     php artisan ide-helper:generate
+    php artisan ide-helper:meta
+    php artisan ide-helper:models
+    
+ *也可以添加执行脚本至composer.json* 
+   
+    "scripts":{
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:models",
+            "@php artisan ide-helper:meta"
+        ]
+    },
 
 ## 安装调试工具
 [laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)

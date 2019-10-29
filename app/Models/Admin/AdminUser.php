@@ -46,6 +46,8 @@ use Illuminate\Support\Facades\DB;
  * @property int $login_times 登录次数
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\AdminUser whereLoginTimes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\AdminUser whereNickname($value)
+ * @property-read int|null $roles_count
+ * @property-read int|null $user_roles_count
  */
 class AdminUser extends Authenticatable
 {
