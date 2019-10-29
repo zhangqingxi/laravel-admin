@@ -14,23 +14,25 @@ This Is A Web System Manage
         --PHP Fileinfo
     php安全函数
         --proc_open
+        --proc_get_status
+        --exec
         --putenv
         --pcntl_signal
         --pcntl_alarm
-        
+           
 ## 2.配置环境
     重命名.env.example为.env
     配置Db、Redis
     其他配置按需求增减     
         
-## 3.必要数据
-    php artisan key:generate
-    php artisan migrate      
-       
-## 4.安装依赖
+## 3.安装依赖
     composer install --optimize-autoloader --no-dev
    **--optimize-autoloader 可优化20%~25%的性能**
    
+## 4.必要数据
+    php artisan key:generate
+    php artisan migrate      
+        
 # 更新流程     
 
 ## 1.开启维护

@@ -1,4 +1,7 @@
-#----admin_menus----
+-- ------------------------------------
+--      Author Qasim
+-- Table structure for sys_admin_menus
+-- -------------------------------------
 INSERT INTO `sys_admin_menus`(`id`, `parent_id`, `status`, `sort`, `route`, `name`, `icon`, `remark`, `deleted_at`, `created_at`, `updated_at`) VALUES (1, 0, 1, 555, 'set', '设置中心', 'layui-icon-set', '设置中心', NULL, '2019-05-07 18:06:37', '2019-05-07 18:06:37');
     INSERT INTO `sys_admin_menus`(`id`, `parent_id`, `status`, `sort`, `route`, `name`, `icon`, `remark`, `deleted_at`, `created_at`, `updated_at`) VALUES (2, 1, 1, 0, 'menus', '菜单管理', '', '菜单管理', NULL, '2019-05-07 22:37:42', '2019-05-07 22:37:45');
         INSERT INTO `sys_admin_menus`(`id`, `parent_id`, `status`, `sort`, `route`, `name`, `icon`, `remark`, `deleted_at`, `created_at`, `updated_at`) VALUES (3, 2, 0, 0, 'menus/list', '菜单列表', '', '菜单列表', NULL, '2019-05-21 13:35:28', '2019-05-21 13:35:28');
@@ -42,14 +45,23 @@ INSERT INTO `sys_admin_menus`(`id`, `parent_id`, `status`, `sort`, `route`, `nam
         INSERT INTO `sys_admin_menus`(`id`, `parent_id`, `status`, `sort`, `route`, `name`, `icon`, `remark`, `deleted_at`, `created_at`, `updated_at`) VALUES (42, 41, 0, 0, 'files/list', '文件列表', '', '查看文件列表', NULL, '2019-05-21 13:33:42', '2019-05-21 13:38:06');
         INSERT INTO `sys_admin_menus`(`id`, `parent_id`, `status`, `sort`, `route`, `name`, `icon`, `remark`, `deleted_at`, `created_at`, `updated_at`) VALUES (43, 41, 0, 0, 'files/delete', '删除文件', '', '删除文件', NULL, '2019-05-11 00:46:20', '2019-05-11 00:46:20');
 
-#----admin_users----
+-- ------------------------------------
+--      Author Qasim
+-- Table structure for admin_users
+-- -------------------------------------
 INSERT INTO `sys_admin_users`(`id`, `username`, `password`, `nickname`, `last_login_ip`, `login_times` , `status`, `deleted_at`, `created_at`, `updated_at`) VALUES (1, 'admin', '$2y$10$nvD4kseoE8.kNxsyyYT5EOGW2mYD3O2cfoVqnHvrBKb.zR3m1PYoG', '系统管理员', '', 0, 1, NULL, '2019-05-11 01:36:20', '2019-05-24 11:40:15');
 
 
-#----admin_roles----
+-- ------------------------------------
+--      Author Qasim
+-- Table structure for admin_roles
+-- -------------------------------------
 INSERT INTO `sys_admin_roles`(`id`, `name`, `remark`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES (1, '系统管理员', '拥有网站最高管理员权限！', 1, NULL, '2019-05-19 14:03:11', '2019-05-21 20:27:05');
 
-#----admin_role_menus----
+-- ------------------------------------
+--      Author Qasim
+-- Table structure for admin_role_menus
+-- -------------------------------------
 INSERT INTO `sys_admin_role_menus`(`id`, `role_id`, `menu_id`) VALUES (1, 1, 1);
 INSERT INTO `sys_admin_role_menus`(`id`, `role_id`, `menu_id`) VALUES (2, 1, 2);
 INSERT INTO `sys_admin_role_menus`(`id`, `role_id`, `menu_id`) VALUES (3, 1, 3);
@@ -94,5 +106,8 @@ INSERT INTO `sys_admin_role_menus`(`id`, `role_id`, `menu_id`) VALUES (41, 1, 41
 INSERT INTO `sys_admin_role_menus`(`id`, `role_id`, `menu_id`) VALUES (42, 1, 42);
 INSERT INTO `sys_admin_role_menus`(`id`, `role_id`, `menu_id`) VALUES (43, 1, 43);
 
-#----admin_user_roles----
+-- ------------------------------------
+--      Author Qasim
+-- Table structure for admin_user_roles
+-- -------------------------------------
 INSERT INTO `sys_admin_user_roles`(`id`, `admin_user_id`, `role_id`) VALUES (1, 1, 1);
