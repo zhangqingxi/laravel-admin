@@ -25,16 +25,20 @@ This Is A Web System Manage
     配置Db、Redis
     其他配置按需求增减     
         
-## 3.安装依赖
+## 3.权限注释
+     \app\Providers\AuthServiceProvider.php
+    把注册权限给注释下
+    
+## 4.安装依赖
     composer install --optimize-autoloader --no-dev
    **--optimize-autoloader 可优化20%~25%的性能**
-   
-## 4.必要数据
+  
+## 5.必要数据
     php artisan key:generate
     php artisan migrate   
     导入init.sql
     
-## 5.菜单权限
+## 6.菜单权限
     \app\Providers\AuthServiceProvider.php
     把注册权限的注释打开
             
