@@ -110,7 +110,7 @@ class AdminUser extends Authenticatable
     public function isInRoles(Collection $roles)
     {
 
-        return !! $roles->intersect($this->roles)->count();
+        return (bool) $roles->intersect($this->roles)->count();
 
     }
 
@@ -120,7 +120,31 @@ class AdminUser extends Authenticatable
     public function hasAdminMenuPermission(AdminMenu $adminMenu)
     {
 
+        if($this->isAdmin()){
+
+            return true;
+
+        }
+
+        //默认管理员拥有所有权限
         return $this->isInRoles($adminMenu->roles);
+
+    }
+
+    /**
+     * 是否是管理员
+     * @return bool
+     */
+    public function isAdmin()
+    {
+
+        if($this->id === 1){
+
+            return true;
+
+        }
+
+        return false;
 
     }
 

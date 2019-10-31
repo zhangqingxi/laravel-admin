@@ -94,11 +94,19 @@
 
         @{{#  if(d.status === 1 ){ }}
 
-        <button class="layui-btn layui-btn-xs layui-btn-danger" @can('users/edit') lay-event="disable" @endcan>显示</button>
+            @{{#  if(d.is_admin === true ){ }}
+
+            <button class="layui-btn layui-btn-xs layui-btn-disabled">显示</button>
+
+            @{{#  } else { }}
+
+            <button class="layui-btn layui-btn-xs"  @can('users/edit') lay-event="disable" @endcan>显示</button>
+
+            @{{#  } }}
 
         @{{#  } else { }}
 
-        <button class="layui-btn layui-btn-xs layui-btn-warning" @can('users/edit') lay-event="enable" @endcan>禁用</button>
+        <button class="layui-btn layui-btn-xs layui-btn-danger" @can('users/edit') lay-event="enable" @endcan>禁用</button>
 
         @{{#  } }}
 
@@ -108,15 +116,29 @@
 
         @can('users/role')
 
+        @{{#  if(d.is_admin === false ){ }}
+
         <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="add">
 
             <i class="layui-icon layui-icon-add-1"></i>角色设置
 
         </a>
 
+        @{{#  } }}
+
         @endcan
 
         @can('users/edit')
+
+        @{{#  if(d.is_admin === true ){ }}
+
+        <a class="layui-btn layui-btn-xs layui-btn-disabled">
+
+            <i class="layui-icon layui-icon-edit"></i>编辑
+
+        </a>
+
+        @{{#  } else { }}
 
         <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">
 
@@ -124,9 +146,21 @@
 
         </a>
 
+        @{{#  } }}
+
         @endcan
 
         @can('users/delete')
+
+        @{{#  if(d.is_admin === true ){ }}
+
+        <a class="layui-btn layui-btn-xs layui-btn-disabled">
+
+            <i class="layui-icon layui-icon-delete"></i>删除
+
+        </a>
+
+        @{{#  } else { }}
 
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">
 
@@ -134,20 +168,29 @@
 
         </a>
 
+        @{{#  } }}
+
         @endcan
 
     </script>
 
     <script type="text/html" id="item-roles">
 
+        @{{#  if(d.is_admin === true ){ }}
 
-        @{{#  if(d.roles.length === 0){ }}
-
-        <button class="layui-btn layui-btn-xs layui-btn-disabled">暂无角色</button>
+        <button class="layui-btn layui-btn-xs layui-btn-disabled">所有权限</button>
 
         @{{#  } else { }}
 
-        <button class="layui-btn layui-btn-xs" @can('users/role') lay-event="add" @endcan>查看角色</button>
+            @{{#  if(d.roles.length === 0){ }}
+
+            <button class="layui-btn layui-btn-xs layui-btn-disabled">暂无角色</button>
+
+            @{{#  } else { }}
+
+            <button class="layui-btn layui-btn-xs" @can('users/role') lay-event="add" @endcan>查看角色</button>
+
+            @{{#  } }}
 
         @{{#  } }}
 
@@ -446,7 +489,7 @@
                                 "data": res.data.data //解析数据列表
                             };
                         },
-                        done:function(){
+                        done:function(res){
                             $('.layui-laypage-next,.layui-laypage-prev,.layui-laypage-btn').unbind('click').on('click', function () {
                                 loader.open(18);
                             })
