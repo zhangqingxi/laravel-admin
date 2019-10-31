@@ -46,6 +46,8 @@ use Illuminate\Support\Facades\DB;
  * @property int $login_times 登录次数
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\AdminUser whereLoginTimes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\AdminUser whereNickname($value)
+ * @property-read int|null $roles_count
+ * @property-read int|null $user_roles_count
  */
 class AdminUser extends Authenticatable
 {
@@ -108,7 +110,7 @@ class AdminUser extends Authenticatable
     public function isInRoles(Collection $roles)
     {
 
-        return !! $roles->intersect($this->roles)->count();
+        return (bool) $roles->intersect($this->roles)->count();
 
     }
 
@@ -118,7 +120,31 @@ class AdminUser extends Authenticatable
     public function hasAdminMenuPermission(AdminMenu $adminMenu)
     {
 
+        if($this->isAdmin()){
+
+            return true;
+
+        }
+
+        //默认管理员拥有所有权限
         return $this->isInRoles($adminMenu->roles);
+
+    }
+
+    /**
+     * 是否是管理员
+     * @return bool
+     */
+    public function isAdmin()
+    {
+
+        if($this->id === 1){
+
+            return true;
+
+        }
+
+        return false;
 
     }
 

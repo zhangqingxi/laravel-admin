@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * ******************
+ *    Author:Qasim
+ *    后台路由
+ * *******************
+ */
 Route::group(['namespace' => 'Admin'], function () {
 
     //登录页面
@@ -10,6 +15,12 @@ Route::group(['namespace' => 'Admin'], function () {
 
     //登出行为
     Route::get('logout', 'LoginController@logout');
+
+    //修改密码
+    Route::get('password/{adminUser}', 'UserController@password');
+
+    //修改密码
+    Route::put('password/{adminUser}', 'UserController@updatePassword');
 
     //权限认证
     Route::group(['middleware' => 'auth:admin'], function (){

@@ -49,6 +49,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Admin\AdminRole[] $roles
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Admin\AdminRoleMenu[] $MenuRoles
+ * @property-read int|null $menu_roles_count
+ * @property-read int|null $all_children_count
+ * @property-read int|null $children_count
+ * @property-read int|null $roles_count
  */
 class AdminMenu extends Base
 {

@@ -43,6 +43,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Admin\Post withoutTrashed()
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Admin\Tag[] $tags
+ * @property string $description 简介
+ * @property string $image 图片
+ * @property-read int|null $tags_count
+ * @property-read \App\Models\Admin\AdminUser $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Post whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Post whereImage($value)
  */
 class Post extends Base
 {

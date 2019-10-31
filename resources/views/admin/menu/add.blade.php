@@ -104,7 +104,7 @@
 
                     <div class="layui-form-item layui-hide">
 
-                        <button class="layui-btn" lay-submit lay-filter="admin-menus-add-submit" id="admin-menus-edit-submit">立即提交</button>
+                        <button class="layui-btn" lay-submit lay-filter="admin-menus-add-submit" id="admin-menus-add-submit">立即提交</button>
 
                     </div>
 

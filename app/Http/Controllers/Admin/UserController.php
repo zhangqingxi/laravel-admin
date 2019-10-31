@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Admin\AdminRole;
 use App\Models\Admin\AdminUser;
 use Exception;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -58,6 +59,17 @@ class UserController extends BaseController
             }
 
             $users = $obj->paginate(10);
+
+            foreach ($users as &$user){
+
+                /**
+                 * @var AdminUser $user
+                 */
+                $user['is_admin'] = $user->isAdmin();
+
+            }
+
+            unset($user);
 
         }catch (Exception $exception){
 
@@ -149,6 +161,81 @@ class UserController extends BaseController
     }
 
     /**
+     * 修改密码页面
+     * @param AdminUser $adminUser
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function password(AdminUser $adminUser)
+    {
+
+        return view('admin.user.password', compact('adminUser'));
+
+    }
+
+
+    /**
+     * 编辑角色行为
+     * @param Request $request
+     * @param AdminUser $adminUser
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updatePassword(Request $request, AdminUser $adminUser)
+    {
+
+        if(empty($request->isJson())){
+
+            return $this->json(0, '没有接收到json参数');
+
+        }
+
+        //参数验证
+        try{
+
+            $this->validate($request, [
+                'current_password' => 'required|string|min:6|max:16',
+                'password' => 'required|string|min:6|max:16|same:password_confirmation',
+            ]);
+
+            //接收字段
+            $fields = json_decode($request->getContent(), true);
+
+            if($fields['current_password'] === $fields['password']){
+
+                return $this->json(0, '当前密码与新密码相同');
+
+            }
+
+            $username = $adminUser->username;
+
+            $password = $fields['current_password'];
+
+            if(Auth::guard('admin')->attempt(compact('username', 'password')) === false){
+
+                return $this->json(0, '当前密码验证失败');
+
+            }
+
+            $password = bcrypt($fields['password']);
+
+            $adminUser->update(['password' => $password]);
+
+            Auth::guard('admin')->logout();
+
+        }catch (ValidationException $exception){
+
+            return $this->json(0, '数据验证不通过', [], array_values($exception->errors())[0][0]);
+
+        }catch (Exception $exception){
+
+            return $this->json(0, '数据更新失败', [], $exception->getMessage());
+
+        }
+
+        return $this->json(1, '数据更新成功');
+
+    }
+
+    /**
      * 编辑角色行为
      * @param Request $request
      * @param AdminUser $adminUser
@@ -160,6 +247,12 @@ class UserController extends BaseController
         if(empty($request->isJson())){
 
             return $this->json(0, '没有接收到json参数');
+
+        }
+
+        if($adminUser->isAdmin()){
+
+            return $this->json(0, '禁止操作');
 
         }
 
@@ -224,6 +317,12 @@ class UserController extends BaseController
             //接收字段
             $fields = json_decode($request->getContent(), true);
 
+            if($adminUser->isAdmin() && empty($fields['status'])){
+
+                return $this->json(0, '禁止操作');
+
+            }
+
             $adminUser->update($fields);
 
         }catch (ValidationException $exception){
@@ -269,6 +368,12 @@ class UserController extends BaseController
 
             foreach ($adminUsers as $adminUser){
 
+                if($adminUser->isAdmin() && empty($fields['status'])){
+
+                    continue;
+
+                }
+
                 $adminUser->update($fields);
 
             }
@@ -298,6 +403,12 @@ class UserController extends BaseController
 
         try{
 
+            if($adminUser->isAdmin()){
+
+                return $this->json(0, '禁止操作');
+
+            }
+
             $adminUser->delete();
 
         }catch (Exception $exception){
@@ -315,6 +426,10 @@ class UserController extends BaseController
      * 设置用户角色页面
      * @param AdminUser $adminUser
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    /**
+     * @param AdminUser $adminUser
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
     public function role(AdminUser $adminUser)
     {
@@ -344,6 +459,13 @@ class UserController extends BaseController
         if(empty($request->isJson())){
 
             return $this->json(0, '没有接收到json参数');
+
+        }
+
+        if($adminUser->isAdmin()){
+
+
+            return $this->json(0, '禁止操作');
 
         }
 
