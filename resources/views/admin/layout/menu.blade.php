@@ -3,7 +3,7 @@
 
     <div class="layui-side-scroll">
 
-        <div class="layui-logo" lay-href="{{url('article')}}">
+        <div class="layui-logo">
 
             <span>后台管理</span>
 
