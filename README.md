@@ -23,7 +23,8 @@ This Is A Web System Manage
 ## 2.配置环境
     重命名.env.example为.env
     配置Db、Redis
-    其他配置按需求增减     
+    配置菜单权限`MENU_AUTH`为false
+    其他配置按需求设置     
            
 ## 3.安装依赖
     composer install --optimize-autoloader --no-dev
@@ -33,6 +34,7 @@ This Is A Web System Manage
     php artisan key:generate
     php artisan migrate
     php artisan db:seed
+    .env开启菜单权限`MENU_AUTH`为true
             
 # 更新流程     
 

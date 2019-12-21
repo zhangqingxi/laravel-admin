@@ -29,16 +29,20 @@ class AuthServiceProvider extends ServiceProvider
 
         $this->registerPolicies();
 
-        //注册权限
-        $adminMenuPermissions = AdminMenu::with('roles')->get();
+        if(config('app.menu_auth')){
 
-        foreach ($adminMenuPermissions as $adminMenuPermission) {
+            //注册权限
+            $adminMenuPermissions = AdminMenu::with('roles')->get();
 
-            Gate::define($adminMenuPermission->route, function(AdminUser $adminUser) use($adminMenuPermission) {
+            foreach ($adminMenuPermissions as $adminMenuPermission) {
 
-                return $adminUser->hasAdminMenuPermission($adminMenuPermission);
+                Gate::define($adminMenuPermission->route, function(AdminUser $adminUser) use($adminMenuPermission) {
 
-            });
+                    return $adminUser->hasAdminMenuPermission($adminMenuPermission);
+
+                });
+
+            }
 
         }
 
