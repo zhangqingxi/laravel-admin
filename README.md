@@ -108,6 +108,7 @@ This Is A Web System Manage
 *生成配置*
 
     php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
+    .env DEBUGBAR_ENABLED=true/false
 
 ## 安装富文本编辑框扩展
 [laravel-u-editor](https://github.com/stevenyangecho/laravel-u-editor)
