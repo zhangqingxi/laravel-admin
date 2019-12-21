@@ -24,23 +24,15 @@ This Is A Web System Manage
     重命名.env.example为.env
     配置Db、Redis
     其他配置按需求增减     
-        
-## 3.权限注释
-     \app\Providers\AuthServiceProvider.php
-    把注册权限给注释下
-    
-## 4.安装依赖
+           
+## 3.安装依赖
     composer install --optimize-autoloader --no-dev
    **--optimize-autoloader 可优化20%~25%的性能**
   
-## 5.必要数据
+## 4.必要数据
     php artisan key:generate
-    php artisan migrate   
-    导入init.sql
-    
-## 6.菜单权限
-    \app\Providers\AuthServiceProvider.php
-    把注册权限的注释打开
+    php artisan migrate
+    php artisan db:seed
             
 # 更新流程     
 
@@ -55,7 +47,7 @@ This Is A Web System Manage
     php artisan clear-compiled
     php artisan route:clear
     php artisan cache:clear
-    php artisan config:cache
+    php artisan config:clear
     
 ## 4.重建缓存
     php artisan optimize
