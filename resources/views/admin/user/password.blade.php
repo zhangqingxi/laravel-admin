@@ -79,6 +79,7 @@
 
             let userId = $('#admin-users-password #id').val();
 
+            let flag = false;
             //监听提交
             form.on('submit(admin-users-password-submit)', function(data){
 
@@ -88,11 +89,13 @@
 
                 let url = "{{url('password')}}"+'/'+userId;
 
-                let __self = $('#admin-users-password-submit');
+                if(flag) return false;
+
+                flag = true;
 
                 common.ajax(url, 'PUT', field, function (result) {
 
-                    __self.attr('disable', false);
+                    flag = false;
 
                     if(result.status === 1){
 
@@ -113,7 +116,7 @@
 
                     common.show('error', '服务器异常', function () {
 
-                        __self.attr('disable', false);
+                        flag = false;
 
                     });
 

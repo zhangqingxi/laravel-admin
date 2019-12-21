@@ -152,6 +152,8 @@
                 }
             });
 
+            let flag = false;
+
             //监听提交
             form.on('submit(admin-menus-edit-submit)', function(data){
 
@@ -161,9 +163,9 @@
 
                 let url = "{{url('menus/edit')}}/"+menuId;
 
-                let __self = $('#admin-menus-edit-submit');
+                if(flag) return false;
 
-                __self.attr('disable', true);
+                flag = true;
 
                 field.status = field.status ? 1 : 0;
 
@@ -173,7 +175,7 @@
 
                 common.ajax(url, 'PUT', field, function (result) {
 
-                    __self.attr('disable', false);
+                    flag = false;
 
                     if(result.status === 1){
 
@@ -198,7 +200,7 @@
 
                     common.show('error', '服务器异常', function () {
 
-                        __self.attr('disable', false);
+                        flag = false;
 
                     });
 

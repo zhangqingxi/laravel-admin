@@ -87,6 +87,7 @@
                 },
             });
 
+            let flag = false;
             //监听提交
             form.on('submit(admin-users-role-submit)', function(data){
 
@@ -104,13 +105,13 @@
 
                 let url = "{{url('users/role')}}" + '/' + adminUserId;
 
-                let __self = $('#admin-menus-add-submit');
+                if(flag) return false;
 
-                __self.attr('disable', true);
+                flag = true;
 
                 common.ajax(url, 'POST', field, function (result) {
 
-                    __self.attr('disable', false);
+                    flag = false;
 
                     if(result.status === 1){
 
@@ -134,7 +135,7 @@
 
                     common.show('error', '服务器异常', function () {
 
-                        __self.attr('disable', false);
+                        flag = false;
 
                     });
 
