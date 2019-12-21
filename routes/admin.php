@@ -5,6 +5,7 @@
  *    后台路由
  * *******************
  */
+
 Route::group(['namespace' => 'Admin'], function () {
 
     //登录页面

@@ -29,7 +29,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $this->registerPolicies();
 
-        if(config('app.menu_auth')){
+        if(config('admin.menu_auth')){
 
             //注册权限
             $adminMenuPermissions = AdminMenu::with('roles')->get();
