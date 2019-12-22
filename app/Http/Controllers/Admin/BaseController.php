@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\CommonController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Response;
+use Storage;
 
-class BaseController extends CommonController
+class BaseController extends Controller
 {
 
     /**
@@ -24,47 +26,56 @@ class BaseController extends CommonController
 
     }
 
-
     /**
-     * 获取客户端真实IP
-     * @return string|null
+     * @param Request $request
+     * @return array
      */
-    public function getIp()
+    protected function uploadImage(Request $request)
     {
 
-        $keys = [
-            'HTTP_CLIENT_IP',
-            'HTTP_X_FORWARDED_FOR',
-            'HTTP_X_FORWARDED',
-            'HTTP_X_CLUSTER_CLIENT_IP',
-            'HTTP_FORWARDED_FOR',
-            'HTTP_FORWARDED',
-            'REMOTE_ADDR'
-        ];
+        if ($request->isMethod('POST')) {
 
-        foreach ($keys as $key) {
 
-            if (array_key_exists($key, $_SERVER)) {
+            $file = $request->file('file');
 
-                foreach (explode(',', $_SERVER[$key]) as $ip) {
+            //判断文件是否上传成功
+            if ($file->isValid()){
 
-                    $ip = trim($ip);
+                $realPath = $file->getRealPath();
 
-                    //会过滤掉保留地址和私有地址段的IP，例如 127.0.0.1会被过滤
-                    //也可以修改成正则验证IP
-                    if ((bool)filter_var($ip, FILTER_VALIDATE_IP,FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE |FILTER_FLAG_NO_RES_RANGE)) {
+                $ext = $file->getClientOriginalExtension();
 
-                        return $ip;
+                if (!in_array($ext, config('filesystems.uploadImageExt'))) {
 
-                    }
+                    return ['status' => 0, 'message' => '上传的文件格式错误!'];
+
+                }
+
+                $filename = config('filesystems.imagePathFormat').md5($file->getFilename()).'.'.$ext;
+
+                $bool = Storage::disk('public')->put($filename, file_get_contents($realPath));
+
+                //判断是否上传成功
+                if($bool){
+
+                    return ['status' => 1, 'message' => '上传成功', 'url' => Storage::url($filename)];
+
+                }else{
+
+                    return ['status' => 0, 'message' => '上传失败!'];
 
                 }
 
             }
 
-        }
+            return ['status' => 0, 'message' => '上传失败!'];
 
-        return 'Unknown';
+
+        }else{
+
+            return ['status' => 0, 'message' => '非法请求!'];
+
+        }
 
     }
 

@@ -68,7 +68,7 @@
 
         layui.extend({
 
-            particleGround : '{/} {{asset('admin/common/jquery/jquery.particleGround')}}',
+            particleGround : '{/} {{asset('static/common/jquery/jquery.particleGround')}}',
 
         }).use(['jquery', 'form', 'particleGround'], function () {
 

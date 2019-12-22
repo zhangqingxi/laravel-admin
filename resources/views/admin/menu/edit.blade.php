@@ -122,7 +122,7 @@
 
         layui.extend({
 
-            formSelects : '{/} {{asset('admin/common/formSelects/formSelects-v4')}}',
+            formSelects : '{/} {{asset('static/common/formSelects/formSelects-v4')}}',
 
         }).use(['formSelects', 'common', 'form'], function(){
 

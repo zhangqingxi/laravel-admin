@@ -32,7 +32,7 @@
 
         layui.extend({
 
-            eleTree : '{/} {{asset('admin/common/eleTree/js/eleTree')}}',
+            eleTree : '{/} {{asset('static/common/eleTree/js/eleTree')}}',
 
         }).use(['form', 'common', 'eleTree'], function(){
 
