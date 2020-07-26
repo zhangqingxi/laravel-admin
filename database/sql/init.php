@@ -232,7 +232,7 @@ return [
         [
             'id' => 26,
             'parent_id' => 0,
-            'route' => 'user',
+            'route' => 'users',
             'status' => 1,
             'name' => '用户中心',
             'icon' => 'layui-icon-user',
@@ -241,7 +241,7 @@ return [
         [
             'id' => 27,
             'parent_id' => 26,
-            'route' => 'user',
+            'route' => 'users',
             'status' => 1,
             'name' => '用户管理',
             'icon' => '',
