@@ -67,6 +67,7 @@ This Is A Web System Manage
     laravel 5.4以上用的是utf8mb4编码【每字符4字节】 
     解决方案 在AppServiceProvider.php中的boot方法加入下面一行
     Schema::defaultStringLength(250); 1000/4
+    
     *Call to undefined function App\Observers\prettyPrint()*
     
     原因是更新composer.json之后 没有在autoload/files加上 "app/Helpers/Helpers.php"
