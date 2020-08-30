@@ -67,6 +67,9 @@ This Is A Web System Manage
     laravel 5.4以上用的是utf8mb4编码【每字符4字节】 
     解决方案 在AppServiceProvider.php中的boot方法加入下面一行
     Schema::defaultStringLength(250); 1000/4
+    *Call to undefined function App\Observers\prettyPrint()*
+    
+    原因是更新composer.json之后 没有在autoload/files加上 "app/Helpers/Helpers.php"
      
 # 用到的知识点
 
@@ -111,33 +114,32 @@ This Is A Web System Manage
     .env DEBUGBAR_ENABLED=true/false
 
 ## 安装富文本编辑框扩展
-[laravel-u-editor](https://github.com/stevenyangecho/laravel-u-editor)
+[laravel-u-editor](https://github.com/overtrue/laravel-ueditor)
 
-    composer require stevenyangecho/laravel-u-editor
+    composer require overtrue/laravel-ueditor
 
 *在config/app.php add service provider*
 
-    Stevenyangecho\UEditor\UEditorServiceProvider::class
+    Overtrue\LaravelUEditor\UEditorServiceProvider::class
 
 *生成静态资源*
     
-    php artisan vendor:publish --provider="Stevenyangecho\UEditor\UEditorServiceProvider" --tag=config
+    php artisan vendor:publish --provider='Overtrue\LaravelUEditor\UEditorServiceProvider'
 
 *blade引入资源*
     
     <!--引入资源-->
-    @include('vendor.UEditor::head');
+    @include('vendor.ueditor.assets')
     
-    <!-- 加载编辑器的容器 -->
-    <script id="container" name="content" type="text/plain">
-        这里写你的初始化内容
-    </script>
+    
+    <!-- 编辑器容器 -->
+    <script id="container" name="content" type="text/plain"></script>
     
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
         var ue = UE.getEditor('container');
-            ue.ready(function() {
-            ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.    
+        ue.ready(function() {
+            ue.execCommand('serverparam', '_token', '{{ csrf_token() }}'); // 设置 CSRF token.
         });
     </script>
     
@@ -161,7 +163,7 @@ This Is A Web System Manage
 ## 安装validate提示语言包
 [laravel-lang](https://github.com/overtrue/laravel-lang)
 
-    composer require --dev overtrue/laravel-lang
+    composer require overtrue/laravel-lang
 
 *在config/app.php add service provider  and edit locale  'zh-CN'*
     

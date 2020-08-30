@@ -115,7 +115,7 @@
 
                         <div class="layui-input-block ue_content">
 
-                            @include('vendor.UEditor.head')
+                            @include('vendor.ueditor.assets')
 
                             <textarea id="content" name="content" style="width: 80%;z-index: 0;"></textarea>
 

@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //富文本编辑器
-        Stevenyangecho\UEditor\UEditorServiceProvider::class,
+        Overtrue\LaravelUEditor\UEditorServiceProvider::class,
 
         //验证码
         Mews\Captcha\CaptchaServiceProvider::class,
