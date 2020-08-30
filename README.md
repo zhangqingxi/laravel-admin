@@ -60,7 +60,7 @@ This Is A Web System Manage
     php artisan up
 
 # 可能出现的问题
-   *php artisan migrate 错误*
+   ```php artisan migrate 错误```
        
     Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes
     原因是最大长度是1000字节 给定的是1071 
@@ -68,7 +68,8 @@ This Is A Web System Manage
     解决方案 在AppServiceProvider.php中的boot方法加入下面一行
     Schema::defaultStringLength(250); 1000/4
     
-    *Call to undefined function App\Observers\prettyPrint()*
+    
+   ```Call to undefined function App\Observers\prettyPrint()```
     
     原因是更新composer.json之后 没有在autoload/files加上 "app/Helpers/Helpers.php"
      
