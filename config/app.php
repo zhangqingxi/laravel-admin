@@ -181,9 +181,6 @@ return [
         //验证码
         Mews\Captcha\CaptchaServiceProvider::class,
 
-        //validate语言包
-        Overtrue\LaravelLang\TranslationServiceProvider::class,
-
         //系统操作
         App\Providers\ModelOperationProvider::class,
 
